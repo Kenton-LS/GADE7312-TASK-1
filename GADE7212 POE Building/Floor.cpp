@@ -8,9 +8,9 @@ Floor::Floor(vec3 _floorPoints[], vec3 _colour, vec3 _normal) // Underscore for 
 	normal = _normal; 
 }
 
-void Floor::drawGeometry()
+void Floor::drawGeometry() // Test comment
 {
-	// All 4 corners of floor -> calculate values using vectors we have!
+	// All 4 corners of floor -> calculate values using vectors we have
 	// Go clockwise around the floor, bottom leftmost coord = v1
 	vec3 v1 = floorPoints[0]; // Bottom left
 	vec3 v2 = floorPoints[1]; // Top left
