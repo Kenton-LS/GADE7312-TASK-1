@@ -1,6 +1,6 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GADE7212 POE Building.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Floor.cpp
-  Room.cpp
-  Generating Code...
+  main.cpp
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(11): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(12): warning C4305: 'initializing': truncation from 'double' to 'float'
   GADE7212 POE Building.vcxproj -> C:\Users\kento\Source\Repos\GADE_POE_2021\GADE7312 TASK 1\Debug\GADE7312 Task1.exe
           1 file(s) copied.
