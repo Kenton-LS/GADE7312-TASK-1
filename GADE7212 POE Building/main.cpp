@@ -11,8 +11,12 @@ const int HEIGHT = 600;
 float twopi = 2.0f * 3.1415926;
 float pi = 3.1415926;
 
+float rotationOffset = 0.50f;
+float rotationSpeed = 0.50f;
+
 void init(); // For initializing some much needed variables
 void display(); // To keep window open for a while
+void panDisplay(); // Camera pans around level
 void timer(int t);
 
 GameObject gameObject;
@@ -33,7 +37,9 @@ int main(int argc, char* argv[])
 	glutInitWindowSize(WIDTH, HEIGHT); // Size of the window to be initialized
 	glutCreateWindow("My Very First OpenGL Window"); // Pointer to a char variable (char array / c string)
 
-	glutDisplayFunc(display); // Show window -> calls the display method periodically
+	//glutDisplayFunc(display); // Show window -> calls the display method periodically
+	glutDisplayFunc(panDisplay);
+
 	glutTimerFunc(0, timer, 0); // Used to time frames
 
 	init(); // change window color (see Init())
@@ -59,11 +65,17 @@ void init()
 
 											// Where camera sits, where center looks at, specify which vector is up (Y in this case)
 											// First 3: origin, next 3: center (0,0,0), next 3: the vector pointing up
-	gluLookAt(
-		-2.5, 7, 30,						// Zoom in / out (Eye position) 
-		-2.5, 7, 0,							// Origin (Point we are looking at)
-		0, 1, 0								// (What vector points up)
-	);
+
+		/*gluLookAt(							    // StillCam
+			-2.5, 7, 30,						// Zoom in / out (Eye position) 
+			-2.5, 7, 0,							// Origin (Point we are looking at)
+			0, 1, 0								// (What vector points up)
+		);*/
+		gluLookAt(							// PanCam
+			0, 6, 35,
+			0, 6, 0,
+			0, 1, 0
+		);
 
 	glClearColor(0.2f, 0.2f, 0.3f, 1.0f);   // RGB Alpha
 
@@ -88,13 +100,29 @@ void display()
 	glPushMatrix(); // Load Level
 	{
 		glTranslatef(0, 0, 0);
-		glRotatef(90, 1, 0, 0);
+		glRotatef(90, 1, 0, 0); // 90 degrees for bird's eye view
 
 		level1->draw(); // LOAD THE LEVEL 
 	}
 	glPopMatrix();
-
 	glutSwapBuffers();						// Swap frames and draw on the new screen frame
+}
+
+void panDisplay()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glPushMatrix();
+	{
+		glRotatef(rotationOffset, 0, 1, 0);
+		glTranslatef(0, 0, 0);
+		glRotatef(60, 1, 0, 0);
+
+		level1->draw();
+	}
+	glPopMatrix();
+	rotationOffset += rotationSpeed;
+	glutSwapBuffers();
 }
 
 void timer(int)
