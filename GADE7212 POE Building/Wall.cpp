@@ -28,9 +28,16 @@ void Wall::drawGeometry()
 
 		glBegin(GL_QUADS);
 		{
+			glTexCoord2f(0, 0);
 			glVertex3f(v1.x, v1.y, v1.z); // Construct a wall
+
+			glTexCoord2f(1, 0);
 			glVertex3f(v2.x, v2.y, v2.z);
+
+			glTexCoord2f(1, 1);
 			glVertex3f(v3.x, v3.y, v3.z);
+
+			glTexCoord2f(0, 1);
 			glVertex3f(v4.x, v4.y, v4.z);
 		}
 		glEnd();

@@ -22,10 +22,6 @@ void Floor::drawGeometry()
 	vec3 v3 = v2 + vec3(width, 0, 0); // Top right
 	vec3 v4 = v1 + vec3(width, 0, 0); // Bottom right
 
-
-	//vec3 v2 = v1 + vUp; // Top left
-	//vec3 v3 = v2 + vLeft; // Top right
-	//vec3 v4 = v1 + vLeft; // Bottom right
 	cout << "Width: " << width << " Height: " << height << " Length: " << length << endl;
 
 	// Start drawing geometry
@@ -38,9 +34,16 @@ void Floor::drawGeometry()
 
 		glBegin(GL_QUADS);
 		{
+			glTexCoord2f(0, 0);
 			glVertex3f(v1.x, 0, v1.z); // Construct a wall
+
+			glTexCoord2f(1, 0);
 			glVertex3f(v2.x, 0, v2.z);
+
+			glTexCoord2f(1, 1);
 			glVertex3f(v3.x, 0, v3.z);
+
+			glTexCoord2f(0, 1);
 			glVertex3f(v4.x, 0, v4.z);
 		}
 		glEnd();

@@ -49,6 +49,7 @@ void Level::parseLevel()
 {
 	int roomCount = levelJSON["rooms"].size();
 	roomPadding = levelJSON["roomPadding"];
+	floorTexture = levelJSON["floorTexture"];
 
 	for (int i = 0; i < roomCount; i++)
 	{
@@ -56,7 +57,7 @@ void Level::parseLevel()
 		json roomJSON = levelJSON["rooms"][i]; // Single room
 
 		// Room
-		Room* room = new Room(roomJSON, roomPadding); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
+		Room* room = new Room(roomJSON, roomPadding, floorTexture); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
 		gameObjects.push_back(room); // IE Same as C# "Add" function to a list
 	}
 

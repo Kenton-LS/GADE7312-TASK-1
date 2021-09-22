@@ -7,7 +7,7 @@
 
 using namespace glm;
 
-Room::Room(json roomJSON, float roomPadding)
+Room::Room(json roomJSON, float roomPadding, string floorTexture)
 {
 	position = vec3(
 		roomJSON["position"][0],
@@ -15,9 +15,8 @@ Room::Room(json roomJSON, float roomPadding)
 		roomJSON["position"][2]
 	);
 
-	generate(roomJSON, roomPadding);
+	generate(roomJSON, roomPadding, floorTexture);
 }
-
 
 Room::~Room()
 {
@@ -27,11 +26,19 @@ Room::~Room()
 	}
 }
 
-void Room::generate(json roomJSON, float roomPadding)
+void Room::generate(json roomJSON, float roomPadding, string floorTexture)
 {
 	float width = roomJSON["width"];
 	float height = roomJSON["height"];
 	float length = roomJSON["length"];
+
+	string textureStringW = roomJSON["texture"]; // Get Floor Texture from JSON as string, convert to const char array
+	cout << textureStringW << endl;
+	const char * textureCharW = textureStringW.c_str();
+
+	string textureStringF = floorTexture; // Get Floor Texture from JSON as string, convert to const char array
+	cout << textureStringF << endl;
+	const char * textureCharF = textureStringF.c_str();
 
 	// Next: Create 3 vectors -> need room's length, width, height as vectors
 	// Need to get as vectors, while taking room padding into consideration
@@ -92,14 +99,17 @@ void Room::generate(json roomJSON, float roomPadding)
 
 		if (i < 4)
 		{
-			Wall * wall = new Wall(vStart, verticalDirection, vy, colour, normal); // Parameters: (vec3 where we start, the vertical direction, 
+			Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal); // Parameters: (vec3 where we start, the vertical direction, 
 																			  //the up vector to get wall height, the colour vec, and the normal vec)
+			wall->setTexture(textureCharW);
 			gameObjects.push_back(wall);
 		}
 		else
 		{
-			Floor * floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
+			Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
+			//floor->setTexture(textureCharW); // To have Floor same Text as Walls
+			floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 			gameObjects.push_back(floor);
 		}
 
@@ -128,3 +138,7 @@ void Room::drawGeometry() // Also Henk recommends using OBJ files instead of FBX
 	}
 	glPopMatrix();
 }
+
+// REFERENCE
+// For converting string to const char*
+// https://stackoverflow.com/questions/347949/how-to-convert-a-stdstring-to-const-char-or-char

@@ -1,180 +1,206 @@
 {
 "roomPadding": 0.2,
+"floorTexture": "../Textures/stone_slab_side.png",
 	"rooms": [
 		{
 			"position": [0, 0, 0], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 0
+			"id": 0,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [-2, 0, -1],
 			"width": 2,
 			"height": 3,
 			"length": 2,
-			"id": 1
+			"id": 1,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [-2, 0, 1],
 			"width": 2,
 			"height": 3,
 			"length": 2,
-			"id": 2
+			"id": 2,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [2, 0, -1],
 			"width": 2,
 			"height": 3,
 			"length": 2,
-			"id": 3
+			"id": 3,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [2, 0, 1],
 			"width": 2,
 			"height": 3,
 			"length": 2,
-			"id": 4
+			"id": 4,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [0, 0, 3],
 			"width": 6,
 			"height": 3,
 			"length": 2,
-			"id": 5
+			"id": 5,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [0, 0, -4], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 6
+			"id": 6,
+			"texture": "../Textures/dark_prismarine.png"
 		},
 		{
 			"position": [0, 0, -8],
 			"width": 8,
 			"height": 3,
 			"length": 4,
-			"id": 7
+			"id": 7,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [6, 0, -8], 
 			"width": 4,
 			"height": 3,
 			"length": 2,
-			"id": 8
+			"id": 8,
+			"texture": "../Textures/spruce_planks.png"
 		},
 		{
 			"position": [10, 0, -8], 
 			"width": 4,
 			"height": 3,
 			"length": 4,
-			"id": 9
+			"id": 9,
+			"texture": "../Textures/spruce_planks.png"
 		},
 		{
 			"position": [6, 0, -5], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 10
+			"id": 10,
+			"texture": "../Textures/spruce_planks.png"
 		},
 		{
 			"position": [9, 0, -4], 
 			"width": 4,
 			"height": 3,
 			"length": 2,
-			"id": 11
+			"id": 11,
+			"texture": "../Textures/spruce_planks.png"
 		},
 		{
 			"position": [0, 0, -12], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 12
+			"id": 12,
+			"texture": "../Textures/gold_block.png"
 		},
 		{
 			"position": [0, 0, -16], 
 			"width": 6,
 			"height": 3,
 			"length": 4,
-			"id": 13
+			"id": 13,
+			"texture": "../Textures/gold_block.png"
 		},
 		{
 			"position": [-5, 0, -16], 
 			"width": 4,
 			"height": 3,
 			"length": 2,
-			"id": 14
+			"id": 14,
+			"texture": "../Textures/gold_block.png"
 		},
 		{
 			"position": [-8, 0, -16], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 15
+			"id": 15,
+			"texture": "../Textures/gold_block.png"
 		},
 		{
 			"position": [-8, 0, -13], 
 			"width": 4,
 			"height": 3,
 			"length": 2,
-			"id": 16
+			"id": 16,
+			"texture": "../Textures/bricks.png"
 		},
 		{
 			"position": [-12, 0, -13], 
 			"width": 4,
 			"height": 3,
 			"length": 4,
-			"id": 17
+			"id": 17,
+			"texture": "../Textures/bricks.png"
 		},
 		{
 			"position": [-12, 0, -9], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 18
+			"id": 18,
+			"texture": "../Textures/bricks.png"
 		},
 		{
 			"position": [-12, 0, -5], 
 			"width": 4,
 			"height": 3,
 			"length": 4,
-			"id": 19
+			"id": 19,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [-12, 0, -1], 
 			"width": 2,
 			"height": 3,
 			"length": 4,
-			"id": 20
+			"id": 20,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [-12, 0, 2], 
 			"width": 6,
 			"height": 3,
 			"length": 2,
-			"id": 21
+			"id": 21,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [-7, 0, 2], 
 			"width": 4,
 			"height": 3,
 			"length": 4,
-			"id": 22
+			"id": 22,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [-16, 0, 0], 
 			"width": 2,
 			"height": 3,
 			"length": 6,
-			"id": 23
+			"id": 23,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		},
 		{
 			"position": [-16, 0, -4], 
 			"width": 2,
 			"height": 3,
 			"length": 2,
-			"id": 24
+			"id": 24,
+			"texture": "../Textures/mossy_stone_bricks.png"
 		}
 	]
 }
