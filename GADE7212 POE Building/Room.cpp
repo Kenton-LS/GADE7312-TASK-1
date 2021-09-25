@@ -42,6 +42,9 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 	bool southFace; 
 	float holeWidth, holeHeight, offset;
 
+	// For Door Walls
+	bool northFace; // (Also uses above holewidth, holeheight, and offset for door dimensions)
+
 	for (auto &array : roomJSON["holes"]) // Manually get HOLE array values from inside each room
 	{
 		face = array["face"];
@@ -124,7 +127,7 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 		vec3 colour = vec3(1, 1, 1); // White placeholder for now -> could alternatively put in the JSON file (in room properties)
 		switch (i)
 		{
-		case 0: // South Face
+		case 0: // South Face - Wall / Hole?
 		{
 			if (roomJSON["holes"][0]["face"] == "s") // Wall with hole 
 			{			
@@ -158,7 +161,7 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 			}
 		}
 		break;
-		case 1: // East Face
+		case 1: // East Face - Wall / Hole?
 		{
 			if (roomJSON["holes"][0]["face"] == "e")
 			{
@@ -192,13 +195,81 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 			}
 		}
 		break;
+		case 2: // North face - Wall / Door?
+		{
+			if (roomJSON["doors"][0]["face"] == "n")
+			{
+				face = roomJSON["doors"][0]["face"];
+				holeWidth = roomJSON["doors"][0]["doorWidth"];
+				holeHeight = roomJSON["doors"][0]["doorHeight"];
+				offset = roomJSON["doors"][0]["offset"];
+
+				northFace = true;
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				door->setTexture(textureCharW);
+				gameObjects.push_back(door);
+			}
+			else if (roomJSON["doors"][1]["face"] == "n")
+			{
+				face = roomJSON["doors"][1]["face"];
+				holeWidth = roomJSON["doors"][1]["doorWidth"];
+				holeHeight = roomJSON["doors"][1]["doorHeight"];
+				offset = roomJSON["doors"][1]["offset"];
+
+				northFace = true;
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				door->setTexture(textureCharW);
+				gameObjects.push_back(door);
+			}
+			else
+			{
+				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
+				wall->setTexture(textureCharW);
+				gameObjects.push_back(wall);
+			}
+		}
+		break;
+		case 3: // West face - Wall / Door?
+		{
+			if (roomJSON["doors"][0]["face"] == "w")
+			{
+				face = roomJSON["doors"][0]["face"];
+				holeWidth = roomJSON["doors"][0]["doorWidth"];
+				holeHeight = roomJSON["doors"][0]["doorHeight"];
+				offset = roomJSON["doors"][0]["offset"];
+
+				northFace = false;
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				door->setTexture(textureCharW);
+				gameObjects.push_back(door);
+			}
+			else if (roomJSON["doors"][1]["face"] == "w")
+			{
+				face = roomJSON["doors"][1]["face"];
+				holeWidth = roomJSON["doors"][1]["doorWidth"];
+				holeHeight = roomJSON["doors"][1]["doorHeight"];
+				offset = roomJSON["doors"][1]["offset"];
+
+				northFace = false;
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				door->setTexture(textureCharW);
+				gameObjects.push_back(door);
+			}
+			else
+			{
+				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
+				wall->setTexture(textureCharW);
+				gameObjects.push_back(wall);
+			}
+		}
+		break;
 		case 4: // Floor
 		{
-			Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
+			/*Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
 			//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 			floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
-			gameObjects.push_back(floor);
+			gameObjects.push_back(floor);*/
 		}
 		break;
 		case 5: // Roof
