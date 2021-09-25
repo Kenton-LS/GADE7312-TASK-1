@@ -20,6 +20,7 @@ private:
 	json levelJSON;
 	float roomPadding;
 	string floorTexture;
+	string roofTexture;
 	vector<GameObject*> gameObjects; // Load JSON, and dynamically create gameobject -> on dynamically allocated memory (on stack, not heap)
 
 	void parseLevel();

@@ -1,8 +1,9 @@
-#include "Level.h"
-#include "Room.h"
 #include <GL/freeglut.h>
 #include <fstream>
 #include <iostream>
+
+#include "Level.h"
+#include "Room.h"
 
 Level::Level(string path)
 {
@@ -50,6 +51,7 @@ void Level::parseLevel()
 	int roomCount = levelJSON["rooms"].size();
 	roomPadding = levelJSON["roomPadding"];
 	floorTexture = levelJSON["floorTexture"];
+	roofTexture = levelJSON["roofTexture"];
 
 	for (int i = 0; i < roomCount; i++)
 	{
@@ -57,7 +59,7 @@ void Level::parseLevel()
 		json roomJSON = levelJSON["rooms"][i]; // Single room
 
 		// Room
-		Room* room = new Room(roomJSON, roomPadding, floorTexture); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
+		Room* room = new Room(roomJSON, roomPadding, floorTexture, roofTexture); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
 		gameObjects.push_back(room); // IE Same as C# "Add" function to a list
 	}
 

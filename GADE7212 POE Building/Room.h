@@ -11,13 +11,13 @@ using namespace std;
 class Room : public GameObject
 {
 public:
-	Room(json roomJSON, float roomPadding, string floorTexture);
+	Room(json roomJSON, float roomPadding, string floorTexture, string roofTexture);
 	~Room();
 private:
 	glm::vec3 position;
 	vector<GameObject*> gameObjects; 
 
-	void generate(json roomJSON, float roomPadding, string floorTexture);
+	void generate(json roomJSON, float roomPadding, string floorTexture, string roofTexture);
 	void drawGeometry() override;
 };
 

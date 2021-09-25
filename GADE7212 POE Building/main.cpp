@@ -82,13 +82,13 @@ void init()
 	glEnable(GL_LIGHTING); // Enable lightning into the project
 	light1.init(); // Intialize first light
 	light1.setPosition(glm::vec4(3.0, 2.0, 0.0, 1.0));
-	light1.setDiffuse(glm::vec4(0.0, 1.0, 1.0, 1.0));
-	light1.setAmbient(glm::vec4(0.0, 1.0, 1.0, 1.0));
+	light1.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
+	light1.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
 
 	light2.init(); // Intialize second light
 	light2.setPosition(glm::vec4(0.0, 2.0, 0.0, 0.0)); // ORIGINAL light2.setPosition(glm::vec4(-3.0, 2.0, 0.0, 1.0));
-	light2.setDiffuse(glm::vec4(1.0, 0.0, 1.0, 1.0));
-	light2.setAmbient(glm::vec4(1.0, 0.0, 1.0, 1.0));
+	light2.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
+	light2.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
 
 	level1 = new Level("../Data/level.json"); // SPECIFY STRING PATH TO LEVEL!!!!!!!!
 }

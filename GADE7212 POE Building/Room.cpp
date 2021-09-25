@@ -1,13 +1,17 @@
 #include <iostream>
-#include "Room.h"
-#include "Wall.h"
-#include "Floor.h"
 #include <glm/glm.hpp>
 #include <GL/freeglut.h>
 
+#include "Room.h"
+#include "Wall.h"
+#include "Floor.h"
+#include "Roof.h"
+#include "Hole.h"
+#include "Door.h"
+
 using namespace glm;
 
-Room::Room(json roomJSON, float roomPadding, string floorTexture)
+Room::Room(json roomJSON, float roomPadding, string floorTexture, string roofTexture)
 {
 	position = vec3(
 		roomJSON["position"][0],
@@ -15,7 +19,7 @@ Room::Room(json roomJSON, float roomPadding, string floorTexture)
 		roomJSON["position"][2]
 	);
 
-	generate(roomJSON, roomPadding, floorTexture);
+	generate(roomJSON, roomPadding, floorTexture, roofTexture);
 }
 
 Room::~Room()
@@ -26,20 +30,39 @@ Room::~Room()
 	}
 }
 
-void Room::generate(json roomJSON, float roomPadding, string floorTexture)
+void Room::generate(json roomJSON, float roomPadding, string floorTexture, string roofTexture)
 {
+	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	float width = roomJSON["width"];
 	float height = roomJSON["height"];
 	float length = roomJSON["length"];
 
-	string textureStringW = roomJSON["texture"]; // Get Floor Texture from JSON as string, convert to const char array
+	// For Hole Walls
+	string face; 
+	bool southFace; 
+	float holeWidth, holeHeight, offset;
+
+	for (auto &array : roomJSON["holes"]) // Manually get HOLE array values from inside each room
+	{
+		face = array["face"];
+		holeWidth = array["holeWidth"];
+		holeHeight = array["holeHeight"];
+		offset = array["offset"];
+	}
+	// End Hole Walls
+	//-------------------------------------------------------------------------------------------------------------------------------------------//
+	string textureStringW = roomJSON["texture"]; // Get Wall Texture from JSON as string, convert to const char array
 	cout << textureStringW << endl;
 	const char * textureCharW = textureStringW.c_str();
 
-	string textureStringF = floorTexture; // Get Floor Texture from JSON as string, convert to const char array
+	string textureStringF = floorTexture; // Get Floor Texture
 	cout << textureStringF << endl;
 	const char * textureCharF = textureStringF.c_str();
 
+	string textureStringR = roofTexture; // Get Roof Texture
+	cout << textureStringR << endl;
+	const char * textureCharR = textureStringR.c_str();
+	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	// Next: Create 3 vectors -> need room's length, width, height as vectors
 	// Need to get as vectors, while taking room padding into consideration
 	// Thus if walls are 0.2 thick -----> width - roomPadding * 2, etc (see below)
@@ -49,11 +72,10 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture)
 	vec3 vz = vec3(0, 0, length - (roomPadding * 2));
 
 	vec3 vStart = vec3(-width / 2.0f + roomPadding, 0, length / 2.0f - roomPadding); // The point at which our walls start
-
-	for (int i = 0; i < 5; i++)
+	//-------------------------------------------------------------------------------------------------------------------------------------------//
+	for (int i = 0; i < 6; i++)
 	{
 		vec3 verticalDirection;
-
 		switch (i) // Get direction to move in box
 		{
 		case 0:
@@ -68,13 +90,15 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture)
 		case 3:
 			verticalDirection = vz;
 			break;
-		case 4:
+		case 4: // Floor
+			verticalDirection = vy;
+			break;
+		case 5: // Roof
 			verticalDirection = -vx;
 			break;
 		}
 
-		// Get normal of each face we are drawing
-		vec3 normal;
+		vec3 normal; // Get normal of each face we are drawing
 		switch (i) // Get direction to move in box
 		{
 		case 0:
@@ -89,30 +113,111 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture)
 		case 3:
 			normal = vec3(1, 0, 0);
 			break;
-		case 4:
+		case 4: // Floor
+			normal = vec3(0, 1, 0);
+			break;
+		case 5: // Roof
 			normal = vec3(0, 1, 0);
 			break;
 		}
 
-		// Could alternatively put wall colour parameter in the JSON file (in room properties)
-		vec3 colour = vec3(1, 1, 1); // White placeholder for now
-
-		if (i < 4)
+		vec3 colour = vec3(1, 1, 1); // White placeholder for now -> could alternatively put in the JSON file (in room properties)
+		switch (i)
 		{
-			Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal); // Parameters: (vec3 where we start, the vertical direction, 
-																			  //the up vector to get wall height, the colour vec, and the normal vec)
-			wall->setTexture(textureCharW);
-			gameObjects.push_back(wall);
+		case 0: // South Face
+		{
+			if (roomJSON["holes"][0]["face"] == "s") // Wall with hole 
+			{			
+				face = roomJSON["holes"][0]["face"];
+				holeWidth = roomJSON["holes"][0]["holeWidth"];
+				holeHeight = roomJSON["holes"][0]["holeHeight"];
+				offset = roomJSON["holes"][0]["offset"];
+
+				southFace = true;
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				hole->setTexture(textureCharW);
+				gameObjects.push_back(hole);
+			}
+			else if (roomJSON["holes"][1]["face"] == "s")
+			{
+				face = roomJSON["holes"][1]["face"];
+				holeWidth = roomJSON["holes"][1]["holeWidth"];
+				holeHeight = roomJSON["holes"][1]["holeHeight"];
+				offset = roomJSON["holes"][1]["offset"];
+
+				southFace = true;
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				hole->setTexture(textureCharW);
+				gameObjects.push_back(hole);
+			}
+			else
+			{
+				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
+				wall->setTexture(textureCharW);
+				gameObjects.push_back(wall);
+			}
 		}
-		else
+		break;
+		case 1: // East Face
+		{
+			if (roomJSON["holes"][0]["face"] == "e")
+			{
+				face = roomJSON["holes"][0]["face"];
+				holeWidth = roomJSON["holes"][0]["holeWidth"];
+				holeHeight = roomJSON["holes"][0]["holeHeight"];
+				offset = roomJSON["holes"][0]["offset"];
+
+				southFace = false;
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				hole->setTexture(textureCharW);
+				gameObjects.push_back(hole);
+			}
+			else if (roomJSON["holes"][1]["face"] == "e")
+			{
+				face = roomJSON["holes"][1]["face"];
+				holeWidth = roomJSON["holes"][1]["holeWidth"];
+				holeHeight = roomJSON["holes"][1]["holeHeight"];
+				offset = roomJSON["holes"][1]["offset"];
+
+				southFace = false;
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				hole->setTexture(textureCharW);
+				gameObjects.push_back(hole);
+			}
+			else
+			{
+				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
+				wall->setTexture(textureCharW);
+				gameObjects.push_back(wall);
+			}
+		}
+		break;
+		case 4: // Floor
 		{
 			Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
-			//floor->setTexture(textureCharW); // To have Floor same Text as Walls
+			//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 			floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 			gameObjects.push_back(floor);
 		}
+		break;
+		case 5: // Roof
+		{
+			/*Roof *roof = new Roof(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
+			//roof->setTexture(textureCharW); // To have Roof same Texture as Walls
+			roof->setTexture(textureCharR); // To have Roof as Wolfenstein Style
+			gameObjects.push_back(roof);*/
+		}
+		break;
+		default: // Wall
+		{
+			// Parameters: (vec3 where we start, the vertical direction, the up vector to get wall height, the colour vec, and the normal vec)
+			Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
+			wall->setTexture(textureCharW);
+			gameObjects.push_back(wall);
+		}
+		}
 		vStart += verticalDirection;
 
 		// To add doorways, rather just make a new Wall Class specializing with having a doorway in itself -> specify in JSON file the door's properties
@@ -124,7 +229,6 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture)
 		//  ]
 	}
 }
-
 
 void Room::drawGeometry() // Also Henk recommends using OBJ files instead of FBX
 {
@@ -142,3 +246,5 @@ void Room::drawGeometry() // Also Henk recommends using OBJ files instead of FBX
 // REFERENCE
 // For converting string to const char*
 // https://stackoverflow.com/questions/347949/how-to-convert-a-stdstring-to-const-char-or-char
+// For extracting values from a JSON array inside a JSON array
+// https://newbedev.com/accessing-elements-from-nlohmann-json

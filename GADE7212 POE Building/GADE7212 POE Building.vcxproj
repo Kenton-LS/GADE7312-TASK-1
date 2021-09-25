@@ -132,20 +132,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Hole.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Roof.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Door.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Hole.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="Roof.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Wall.h" />
