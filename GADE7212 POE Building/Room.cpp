@@ -208,6 +208,18 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
+
+				// Door's Roof
+				Roof *roof = new Roof(vStart - vec3(offset - roomPadding + holeWidth, 0, 0), holeWidth, holeHeight, roomPadding * 2, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(roof);
+
+				// Door's Floor
+				Floor *floor = new Floor(vStart - vec3(offset - roomPadding + holeWidth, 0, 0), holeWidth, holeHeight, roomPadding * 2, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(floor);
 			}
 			else if (roomJSON["doors"][1]["face"] == "n")
 			{
@@ -220,6 +232,18 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
+
+				// Door's Roof
+				Roof *roof = new Roof(vStart - vec3(offset - roomPadding + holeWidth, 0, 0), holeWidth, holeHeight, roomPadding * 2, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(roof);
+
+				// Door's Floor
+				Floor *floor = new Floor(vStart - vec3(offset - roomPadding + holeWidth, 0, 0), holeWidth, holeHeight, roomPadding * 2, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(floor);
 			}
 			else
 			{
@@ -242,6 +266,18 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
+
+				// Door's Roof
+				Roof *roof = new Roof(vStart + vec3(-roomPadding * 2, 0, offset - roomPadding + holeWidth), roomPadding * 2, holeHeight, holeWidth, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(roof);
+
+				// Door's Floor
+				Floor *floor = new Floor(vStart + vec3(-roomPadding * 2, 0, offset - roomPadding + holeWidth), roomPadding * 2, holeHeight, holeWidth, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(floor);
 			}
 			else if (roomJSON["doors"][1]["face"] == "w")
 			{
@@ -254,6 +290,18 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
+
+				// Door's Roof
+				Roof *roof = new Roof(vStart + vec3(-roomPadding * 2, 0, offset - roomPadding + holeWidth), roomPadding * 2, holeHeight, holeWidth, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(roof);
+
+				// Door's Floor
+				Floor *floor = new Floor(vStart + vec3(-roomPadding * 2, 0, offset - roomPadding + holeWidth), roomPadding * 2, holeHeight, holeWidth, colour, vec3(0, 1, 0));
+				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
+				floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
+				gameObjects.push_back(floor);
 			}
 			else
 			{
@@ -265,20 +313,20 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 		break;
 		case 4: // Floor
 		{
-			/*Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
+			Floor *floor = new Floor(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
 			//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 			floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
-			gameObjects.push_back(floor);*/
+			gameObjects.push_back(floor);
 		}
 		break;
 		case 5: // Roof
 		{
-			/*Roof *roof = new Roof(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
+			Roof *roof = new Roof(vStart, width - (roomPadding * 2), height, length - (roomPadding * 2), colour, normal);
 
 			//roof->setTexture(textureCharW); // To have Roof same Texture as Walls
 			roof->setTexture(textureCharR); // To have Roof as Wolfenstein Style
-			gameObjects.push_back(roof);*/
+			gameObjects.push_back(roof);
 		}
 		break;
 		default: // Wall
