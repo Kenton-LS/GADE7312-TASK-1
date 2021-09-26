@@ -5,9 +5,9 @@
 #include "Level.h"
 #include "Room.h"
 
-Level::Level(string path)
+Level::Level(string path, bool hasRoof, bool hasFloor, bool hasDoors)
 {
-	load(path);
+	load(path, hasRoof, hasFloor, hasDoors);
 }
 
 Level::~Level()
@@ -18,7 +18,7 @@ Level::~Level()
 	}
 }
 
-void Level::load(string path)
+void Level::load(string path, bool hasRoof, bool hasFloor, bool hasDoors)
 {
 	string jsonString = "";
 	string line;
@@ -43,10 +43,10 @@ void Level::load(string path)
 
 	// Continue loading level from file if no problems
 	levelJSON = json::parse(jsonString);
-	parseLevel();
+	parseLevel(hasRoof, hasFloor, hasDoors);
 }
 
-void Level::parseLevel()
+void Level::parseLevel(bool hasRoof, bool hasFloor, bool hasDoors)
 {
 	int roomCount = levelJSON["rooms"].size();
 	roomPadding = levelJSON["roomPadding"];
@@ -59,7 +59,7 @@ void Level::parseLevel()
 		json roomJSON = levelJSON["rooms"][i]; // Single room
 
 		// Room
-		Room* room = new Room(roomJSON, roomPadding, floorTexture, roofTexture); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
+		Room* room = new Room(roomJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
 		gameObjects.push_back(room); // IE Same as C# "Add" function to a list
 	}
 

@@ -2,28 +2,42 @@
 #include <math.h>
 #include <cmath>
 #include <iostream>
+#include <time.h>
 
 #include "Light.h"
 #include "Level.h"
 
-const int WIDTH = 800; // Size of freeglut window
-const int HEIGHT = 600;
+const int WIDTH = 1000; // Size of freeglut window
+const int HEIGHT = 800;
 float twopi = 2.0f * 3.1415926;
 float pi = 3.1415926;
 
 float rotationOffset = 0.50f;
 float rotationSpeed = 0.50f;
 
+// FPS Variables
+int initial_time = time(NULL); // Initialized at start
+int final_time;
+int frame_count = 0; // Initially 0
+
 void init(); // For initializing some much needed variables
 void display(); // To keep window open for a while
 void panDisplay(); // Camera pans around level
 void timer(int t);
+void calculateFPS();
 
 GameObject gameObject;
 
 Light light1;
 Light light2;
 Level* level1; // Pointer to a level -> means the object will have to be deleted after use however (check GLUT main)
+
+//------CONTROL HUB------//
+bool hasPan = true;
+bool hasRoof = true;
+bool hasFloor = true;
+bool hasDoors = true;
+//-----------------------//
 
 int main(int argc, char* argv[])
 {
@@ -37,8 +51,14 @@ int main(int argc, char* argv[])
 	glutInitWindowSize(WIDTH, HEIGHT); // Size of the window to be initialized
 	glutCreateWindow("My Very First OpenGL Window"); // Pointer to a char variable (char array / c string)
 
-	//glutDisplayFunc(display); // Show window -> calls the display method periodically
-	glutDisplayFunc(panDisplay);
+	if (hasPan)
+	{
+		glutDisplayFunc(panDisplay);
+	}
+	else
+	{
+		glutDisplayFunc(display); // Show window -> calls the display method periodically
+	}
 
 	glutTimerFunc(0, timer, 0); // Used to time frames
 
@@ -66,16 +86,22 @@ void init()
 											// Where camera sits, where center looks at, specify which vector is up (Y in this case)
 											// First 3: origin, next 3: center (0,0,0), next 3: the vector pointing up
 
-		/*gluLookAt(							    // StillCam
-			-2.5, 7, 30,						// Zoom in / out (Eye position) 
-			-2.5, 7, 0,							// Origin (Point we are looking at)
-			0, 1, 0								// (What vector points up)
-		);*/
+	if (hasPan)
+	{
 		gluLookAt(							// PanCam
 			0, 6, 35,
 			0, 6, 0,
 			0, 1, 0
 		);
+	}
+	else
+	{
+		gluLookAt(							    // StillCam
+			-2.5, 7, 30,						// Zoom in / out (Eye position) 
+			-2.5, 7, 0,							// Origin (Point we are looking at)
+			0, 1, 0								// (What vector points up)
+		);
+	}
 
 	glClearColor(0.2f, 0.2f, 0.3f, 1.0f);   // RGB Alpha
 
@@ -90,7 +116,7 @@ void init()
 	light2.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
 	light2.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
 
-	level1 = new Level("../Data/level.json"); // SPECIFY STRING PATH TO LEVEL!!!!!!!!
+	level1 = new Level("../Data/level.json", hasRoof, hasFloor, hasDoors); // SPECIFY STRING PATH TO LEVEL!!!!!!!!
 }
 
 void display()
@@ -106,6 +132,8 @@ void display()
 	}
 	glPopMatrix();
 	glutSwapBuffers();						// Swap frames and draw on the new screen frame
+
+	calculateFPS();
 }
 
 void panDisplay()
@@ -123,10 +151,29 @@ void panDisplay()
 	glPopMatrix();
 	rotationOffset += rotationSpeed;
 	glutSwapBuffers();
+
+	calculateFPS();
 }
 
 void timer(int)
 {
 	glutPostRedisplay();
 	glutTimerFunc(1000 / 60, timer, 0);		// Wait for 60th of a sec, then call timer again
+}
+
+void calculateFPS()
+{
+	// For FPS
+	frame_count++;
+	final_time = time(NULL); // Returns seconds
+	// If the time between initial & current time is > 1, a second has passed
+	if (final_time - initial_time > 0)
+	{
+		// Calculate Frame Rate
+		// Formula: frames drawn / time taken (in seconds) = fps
+
+		std::cout << "FPS: " << frame_count / (final_time - initial_time) << std::endl;
+		frame_count = 0; // Reset for next time we calculate (for every sec that passes)
+		initial_time = final_time;
+	}
 }

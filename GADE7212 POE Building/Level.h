@@ -10,19 +10,19 @@ using namespace std;
 class Level : public GameObject
 {
 public:
-	Level(string path);
+	Level(string path, bool hasRoof, bool hasFloor, bool hasDoors);
 	~Level();
 private:
 	// Private integer for display lists
 	GLuint id;
 
-	void load(string path);
+	void load(string path, bool hasRoof, bool hasFloor, bool hasDoors);
 	json levelJSON;
 	float roomPadding;
 	string floorTexture;
 	string roofTexture;
 	vector<GameObject*> gameObjects; // Load JSON, and dynamically create gameobject -> on dynamically allocated memory (on stack, not heap)
 
-	void parseLevel();
+	void parseLevel(bool hasRoof, bool hasFloor, bool hasDoors);
 	void drawGeometry() override;
 };
