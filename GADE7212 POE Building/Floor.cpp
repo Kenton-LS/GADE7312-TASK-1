@@ -37,13 +37,13 @@ void Floor::drawGeometry()
 			glTexCoord2f(0, 0);
 			glVertex3f(v1.x, 0, v1.z); // Construct a wall
 
-			glTexCoord2f(1, 0);
+			glTexCoord2f(0, -length);
 			glVertex3f(v2.x, 0, v2.z);
 
-			glTexCoord2f(1, 1);
+			glTexCoord2f(width, -length);
 			glVertex3f(v3.x, 0, v3.z);
 
-			glTexCoord2f(0, 1);
+			glTexCoord2f(width, 0);
 			glVertex3f(v4.x, 0, v4.z);
 		}
 		glEnd();

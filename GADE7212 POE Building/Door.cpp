@@ -77,14 +77,14 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(v1.x, v1.y, v1.z); // V1
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(v2.x, v2.y, v2.z); // V2
 
 				// Left side wall - hole verts
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(offset), glm::length(vUp));
 				glVertex3f(vh2.x, vh2.y, vh2.z); // VH2
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
 				//-------------------------------------------------------//
@@ -93,13 +93,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vh2.x, vh2.y, vh2.z); // VH2
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
 				glVertex3f(vd2.x, vd2.y, vd2.z); // VD2
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vd1.x, vd1.y, vd1.z); // VD1
 
 				//-------------------------------------------------------//
@@ -108,13 +108,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vd4.x, vd4.y, vd4.z); // VD4
 				
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vd3.x, vd3.y, vd3.z); // VD3
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
 				//-------------------------------------------------------//
@@ -123,14 +123,14 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
 				// Right side wall
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(offset), glm::length(vUp));
 				glVertex3f(v3.x, v3.y, v3.z); // V3
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(v4.x, v4.y, v4.z); //V4
 
 				//-------------------------------------------------------//
@@ -143,14 +143,14 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(v1.x, v1.y, v1.z); // V1
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(v2.x, v2.y, v2.z); // V2
 
 				// Hole in middle
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(offset), glm::length(vUp));
 				glVertex3f(vh2.x, vh2.y, vh2.z); // VH2
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
 				//-------------------------------------------------------//
@@ -159,13 +159,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vh2.x, vh2.y, vh2.z); // VH2
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
 				glVertex3f(vd2.x, vd2.y, vd2.z); // VD2
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vd1.x, vd1.y, vd1.z); // VD1
 
 				//-------------------------------------------------------//
@@ -174,13 +174,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vd4.x, vd4.y, vd4.z); // VD4
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vd3.x, vd3.y, vd3.z); // VD3
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
 				//-------------------------------------------------------//
@@ -188,14 +188,14 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(0, glm::length(vUp));
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
 				// Right side wall
-				glTexCoord2f(1, 1);
+				glTexCoord2f(glm::length(offset), glm::length(vUp));
 				glVertex3f(v3.x, v3.y, v3.z); // V3
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(v4.x, v4.y, v4.z); //V4
 
 				//-------------------------------------------------------//

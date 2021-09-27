@@ -2,6 +2,7 @@
 "roomPadding": 0.2,
 "floorTexture": "../Textures/stone_slab_side.png",
 "roofTexture": "../Textures/frosted_ice.png",
+"wallTexture": "../Textures/dark_prismarine.png",
 	"rooms": [
 		{
 			"position": [0, 0, 0], 
@@ -250,6 +251,44 @@
 			"id": 24,
 			"texture": "../Textures/dirt.png",
 			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}]
+		}
+	],
+	"models": [
+		{
+			"id": 0,
+			"position": [0, 0, 0], 
+			"rotation": [0, 0, 0], 
+			"scale": [1, 1, 1], 
+			"polygons": 20000,
+			"texture": "../Textures/dark_prismarine.png",
+			"textureNormal": "../Textures/bricks.png",
+			"textureBump": "../Textures/dark_prismarine.png",
+			"textureShadow": "../Textures/dirt.png",
+			"textureReflection": "../Textures/frosted_ice.png"
+		},
+		{
+			"id": 1,
+			"position": [0, 0, -8], 
+			"rotation": [90, 0, 0], 
+			"scale": [1, 1, 1], 
+			"polygons": 15000,
+			"texture": "../Textures/dark_prismarine.png",
+			"textureNormal": "../Textures/gold_block.png",
+			"textureBump": "../Textures/grass_block_side.png",
+			"textureShadow": "../Textures/grass_block_top.png",
+			"textureReflection": "../Textures/mossy_cobblestone.png"
+		},
+		{
+			"id": 0,
+			"position": [-12, 0, -5], 
+			"rotation": [0, 0, 180], 
+			"scale": [1, 1, 1], 
+			"polygons": 20000,
+			"texture": "../Textures/dark_prismarine.png",
+			"textureNormal": "../Textures/mossy_stone_bricks.png",
+			"textureBump": "../Textures/spruce_planks.png",
+			"textureShadow": "../Textures/stone_bricks.png",
+			"textureReflection": "../Textures/stone_slab_side.png"
 		}
 	]
 }

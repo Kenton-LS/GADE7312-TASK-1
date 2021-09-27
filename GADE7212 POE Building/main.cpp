@@ -6,6 +6,9 @@
 
 #include "Light.h"
 #include "Level.h"
+#include "LightSun.h"
+#include "LightSpot.h"
+#include "LightPoint.h"
 
 const int WIDTH = 1000; // Size of freeglut window
 const int HEIGHT = 800;
@@ -32,11 +35,19 @@ Light light1;
 Light light2;
 Level* level1; // Pointer to a level -> means the object will have to be deleted after use however (check GLUT main)
 
+LightSun lightSun;
+LightSpot lightSpot;
+LightPoint lightPoint;
+
 //------CONTROL HUB------//
 bool hasPan = true;
 bool hasRoof = true;
 bool hasFloor = true;
 bool hasDoors = true;
+bool hasLight = false;
+bool night = false; 
+// If hasLight = false, make night = false
+// If night = true, make hasPan and hasRoof = false
 //-----------------------//
 
 int main(int argc, char* argv[])
@@ -105,16 +116,57 @@ void init()
 
 	glClearColor(0.2f, 0.2f, 0.3f, 1.0f);   // RGB Alpha
 
-	glEnable(GL_LIGHTING); // Enable lightning into the project
-	light1.init(); // Intialize first light
-	light1.setPosition(glm::vec4(3.0, 2.0, 0.0, 1.0));
-	light1.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
-	light1.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
+	if (hasLight)
+	{
+		glEnable(GL_LIGHTING); // Enable lightning into the project
 
-	light2.init(); // Intialize second light
-	light2.setPosition(glm::vec4(0.0, 2.0, 0.0, 0.0)); // ORIGINAL light2.setPosition(glm::vec4(-3.0, 2.0, 0.0, 1.0));
-	light2.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
-	light2.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
+		lightSun.init(); // Intialize first light
+
+		if (night)
+		{
+			lightSun.setDiffuse(glm::vec4(0.2, 0.2, 0.2, 0.2));
+			lightSun.setAmbient(glm::vec4(0.2, 0.2, 0.2, 0.2));
+		}
+		else
+		{
+			lightSun.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
+			lightSun.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
+		}
+		lightSun.setSpecular(glm::vec4(1.0, 1.0, 1.0, 1.0));
+
+		lightSpot.init(); // Intialize second light
+
+		lightSpot.setPosition(glm::vec4(-3.0, 0.0, 3.0, 1.0));
+		lightSpot.setDiffuse(glm::vec4(0.0, 1.0, 0.0, 1.0));
+		lightSpot.setAmbient(glm::vec4(0.0, 1.0, 0.0, 1.0));
+
+		lightSpot.setCutoff(60.0);
+		lightSpot.setDirection(glm::vec3(1.0, 2.0, 1.5));
+		lightSpot.setExponent(1.0);
+
+		lightPoint.init(); // Intialize third light
+
+		lightPoint.setPosition(glm::vec4(0.0, 1.0, 0.0, 1.0));
+		lightPoint.setDiffuse(glm::vec4(1.0, 0.0, 0.0, 1.0));
+		lightPoint.setAmbient(glm::vec4(1.0, 0.0, 0.0, 1.0));
+
+		lightPoint.setCAttenuation(1.0);//stays 1 for constant emmission
+		lightPoint.setLAttenuation(0.09);
+		lightPoint.setQAttenuation(0.02);
+	}
+	else
+	{
+		glEnable(GL_LIGHTING); // Enable lightning into the project
+		light1.init(); // Intialize first light
+		light1.setPosition(glm::vec4(3.0, 2.0, 0.0, 1.0));
+		light1.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
+		light1.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
+
+		light2.init(); // Intialize second light
+		light2.setPosition(glm::vec4(0.0, 2.0, 0.0, 0.0)); // ORIGINAL light2.setPosition(glm::vec4(-3.0, 2.0, 0.0, 1.0));
+		light2.setDiffuse(glm::vec4(1.0, 1.0, 1.0, 1.0));
+		light2.setAmbient(glm::vec4(1.0, 1.0, 1.0, 1.0));
+	}
 
 	level1 = new Level("../Data/level.json", hasRoof, hasFloor, hasDoors); // SPECIFY STRING PATH TO LEVEL!!!!!!!!
 }
@@ -177,3 +229,7 @@ void calculateFPS()
 		initial_time = final_time;
 	}
 }
+
+// REFERENCES
+// FPS counter
+// https://www.youtube.com/watch?v=CYDFQ1oJJdI

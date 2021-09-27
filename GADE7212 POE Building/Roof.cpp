@@ -37,13 +37,13 @@ void Roof::drawGeometry()
 			glTexCoord2f(0, 0);
 			glVertex3f(v1.x, height, v1.z); // Construct a roof -> note the HEIGHT added
 
-			glTexCoord2f(1, 0);
+			glTexCoord2f(0, -length);
 			glVertex3f(v2.x, height, v2.z);
 
-			glTexCoord2f(1, 1);
+			glTexCoord2f(width, -length);
 			glVertex3f(v3.x, height, v3.z);
 
-			glTexCoord2f(0, 1);
+			glTexCoord2f(width, 0);
 			glVertex3f(v4.x, height, v4.z);
 		}
 		glEnd();

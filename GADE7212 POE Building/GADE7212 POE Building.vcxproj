@@ -138,6 +138,9 @@
     <ClCompile Include="Hole.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightPoint.cpp" />
+    <ClCompile Include="LightSpot.cpp" />
+    <ClCompile Include="LightSun.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Roof.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -151,6 +154,9 @@
     <ClInclude Include="Hole.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LightPoint.h" />
+    <ClInclude Include="LightSpot.h" />
+    <ClInclude Include="LightSun.h" />
     <ClInclude Include="Roof.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Texture.h" />
