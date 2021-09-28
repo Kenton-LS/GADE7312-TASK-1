@@ -5,7 +5,8 @@
 #include <time.h>
 
 #include "Light.h"
-#include "Level.h"
+#include "Level.h" // Calls Room.h
+#include "Loader.h" // Calls Model.h
 #include "LightSun.h"
 #include "LightSpot.h"
 #include "LightPoint.h"
@@ -44,8 +45,8 @@ bool hasPan = true;
 bool hasRoof = true;
 bool hasFloor = true;
 bool hasDoors = true;
-bool hasLight = false;
-bool night = false; 
+bool hasLight = true;
+bool night = true; 
 // If hasLight = false, make night = false
 // If night = true, make hasPan and hasRoof = false
 //-----------------------//

@@ -141,7 +141,9 @@
     <ClCompile Include="LightPoint.cpp" />
     <ClCompile Include="LightSpot.cpp" />
     <ClCompile Include="LightSun.cpp" />
+    <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Roof.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -157,6 +159,8 @@
     <ClInclude Include="LightPoint.h" />
     <ClInclude Include="LightSpot.h" />
     <ClInclude Include="LightSun.h" />
+    <ClInclude Include="Loader.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Roof.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Texture.h" />

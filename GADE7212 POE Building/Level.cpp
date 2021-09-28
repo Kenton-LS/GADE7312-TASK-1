@@ -53,13 +53,31 @@ void Level::parseLevel(bool hasRoof, bool hasFloor, bool hasDoors)
 	floorTexture = levelJSON["floorTexture"];
 	roofTexture = levelJSON["roofTexture"];
 
+	int modelCount = levelJSON["models"].size(); // Model info (Proof it parses)
+	cout << "\nMODEL SIZE: " << modelCount << "\n" << endl;
+	json modelJSON;
+
+	for (int i = 0; i < modelCount; i++) // Model info continued
+	{
+		modelJSON = levelJSON["models"][i];
+		cout << "MODEL ID: " << levelJSON["models"][i]["id"] << endl;
+		cout << "MODEL POSITION: " << levelJSON["models"][i]["position"] << endl;
+		cout << "MODEL ROTATION: " << levelJSON["models"][i]["rotation"] << endl;
+		cout << "MODEL SCALE: " << levelJSON["models"][i]["scale"] << endl;
+		cout << "MODEL TEXTURE: " << levelJSON["models"][i]["texture"] << endl;
+		cout << "MODEL TEXTURE NORMAL: " << levelJSON["models"][i]["textureNormal"] << endl;
+		cout << "MODEL TEXTURE BUMP: " << levelJSON["models"][i]["textureBump"] << endl;
+		cout << "MODEL TEXTURE SHADOW: " << levelJSON["models"][i]["textureShadow"] << endl;
+		cout << "MODEL TEXTURE REFLECTION: " << levelJSON["models"][i]["textureReflection"] << "\n" << endl;
+	}
+
 	for (int i = 0; i < roomCount; i++)
 	{
 		// Grab each JSON room object individually
 		json roomJSON = levelJSON["rooms"][i]; // Single room
 
 		// Room
-		Room* room = new Room(roomJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
+		Room* room = new Room(roomJSON, modelJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
 		gameObjects.push_back(room); // IE Same as C# "Add" function to a list
 	}
 

@@ -11,7 +11,7 @@
 
 using namespace glm;
 
-Room::Room(json roomJSON, float roomPadding, string floorTexture, string roofTexture, bool hasRoof, bool hasFloor, bool hasDoors)
+Room::Room(json roomJSON, json modelJSON, float roomPadding, string floorTexture, string roofTexture, bool hasRoof, bool hasFloor, bool hasDoors)
 {
 	position = vec3(
 		roomJSON["position"][0],
@@ -19,7 +19,7 @@ Room::Room(json roomJSON, float roomPadding, string floorTexture, string roofTex
 		roomJSON["position"][2]
 	);
 
-	generate(roomJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors);
+	generate(roomJSON, modelJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors);
 }
 
 Room::~Room()
@@ -30,7 +30,7 @@ Room::~Room()
 	}
 }
 
-void Room::generate(json roomJSON, float roomPadding, string floorTexture, string roofTexture, bool hasRoof, bool hasFloor, bool hasDoors)
+void Room::generate(json roomJSON, json modelJSON, float roomPadding, string floorTexture, string roofTexture, bool hasRoof, bool hasFloor, bool hasDoors)
 {
 	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	float width = roomJSON["width"];
@@ -55,15 +55,15 @@ void Room::generate(json roomJSON, float roomPadding, string floorTexture, strin
 	// End Hole Walls
 	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	string textureStringW = roomJSON["texture"]; // Get Wall Texture from JSON as string, convert to const char array
-	cout << textureStringW << endl;
+	//cout << textureStringW << endl;
 	const char * textureCharW = textureStringW.c_str();
 
 	string textureStringF = floorTexture; // Get Floor Texture
-	cout << textureStringF << endl;
+	//cout << textureStringF << endl;
 	const char * textureCharF = textureStringF.c_str();
 
 	string textureStringR = roofTexture; // Get Roof Texture
-	cout << textureStringR << endl;
+	//cout << textureStringR << endl;
 	const char * textureCharR = textureStringR.c_str();
 	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	// Next: Create 3 vectors -> need room's length, width, height as vectors
