@@ -1,10 +1,11 @@
 #include "Texture.h"
 #include <GL/freeglut.h>
 #include <iostream>
+#include <stb_image.h>
 
 // STB
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+/*#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>*/
 
 Texture::Texture(const char* path)
 {

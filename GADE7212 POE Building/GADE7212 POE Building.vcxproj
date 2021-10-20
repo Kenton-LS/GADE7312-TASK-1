@@ -77,7 +77,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\freeglut\include;$(SolutionDir)Libraries\stb;$(SolutionDir)Libraries\glm-0.9.9.7\glm;$(SolutionDir)Libraries\json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\freeglut\include;$(SolutionDir)Libraries\stb;$(SolutionDir)Libraries\glm-0.9.9.7\glm;$(SolutionDir)Libraries\json\include;$(SolutionDir)Models;$(SolutionDir)Libraries\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\freeglut\include;$(SolutionDir)Libraries\stb;$(SolutionDir)Libraries\glm-0.9.9.7\glm;$(SolutionDir)Libraries\json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\freeglut\include;$(SolutionDir)Libraries\stb;$(SolutionDir)Libraries\glm-0.9.9.7\glm;$(SolutionDir)Libraries\json\include;$(SolutionDir)Models;$(SolutionDir)Libraries\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -144,6 +144,7 @@
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ModelWhole.cpp" />
     <ClCompile Include="Roof.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -161,9 +162,12 @@
     <ClInclude Include="LightSun.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelPart.h" />
+    <ClInclude Include="ModelWhole.h" />
     <ClInclude Include="Roof.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>

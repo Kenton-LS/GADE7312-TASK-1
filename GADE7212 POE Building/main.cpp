@@ -11,6 +11,16 @@
 #include "LightSpot.h"
 #include "LightPoint.h"
 
+#include "ModelWhole.h" // TASK 2 Loading in models
+
+// STB TEXTURES
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
+// Tiny OBJ loader
+#define TINYOBJLOADER_IMPLEMENTATION
+#include <tiny_obj_loader.h>
+
 const int WIDTH = 1000; // Size of freeglut window
 const int HEIGHT = 800;
 float twopi = 2.0f * 3.1415926;
@@ -31,6 +41,7 @@ void timer(int t);
 void calculateFPS();
 
 GameObject gameObject;
+ModelWhole* model1;
 
 Light light1;
 Light light2;
@@ -41,12 +52,12 @@ LightSpot lightSpot;
 LightPoint lightPoint;
 
 //------CONTROL HUB------//
-bool hasPan = true;
+bool hasPan = false;
 bool hasRoof = true;
 bool hasFloor = true;
 bool hasDoors = true;
-bool hasLight = true;
-bool night = true;
+bool hasLight = false;
+bool night = false;
 // If hasLight = false, make night = false
 // If night = true, make hasPan and hasRoof = false
 //-----------------------//
@@ -78,6 +89,7 @@ int main(int argc, char* argv[])
 	glutMainLoop(); // Infinite loop window display until exit button clicked
 
 	delete level1; // DELETE LEVEL HERE!!!
+	delete model1;
 
 	return 0;
 }
@@ -170,6 +182,9 @@ void init()
 	}
 
 	level1 = new Level("../Data/level.json", hasRoof, hasFloor, hasDoors); // SPECIFY STRING PATH TO LEVEL!!!!!!!!
+
+	model1 = new ModelWhole("../Models/statue", "statue");
+	model1->setPosition(0, 0, 0);
 }
 
 void display()
@@ -182,8 +197,11 @@ void display()
 		glRotatef(90, 1, 0, 0); // 90 degrees for bird's eye view
 
 		level1->draw(); // LOAD THE LEVEL 
+		model1->draw(); // Load Models
 	}
 	glPopMatrix();
+
+
 	glutSwapBuffers();						// Swap frames and draw on the new screen frame
 
 	calculateFPS();
