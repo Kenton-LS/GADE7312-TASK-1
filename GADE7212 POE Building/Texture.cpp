@@ -21,7 +21,7 @@ void Texture::use()
 {
 	if (!loaded)
 	{
-		//std::cout << "WARNING: Tex load fail." << std::endl;
+		std::cout << "WARNING: Tex load fail." << std::endl;
 		return;
 	}
 
@@ -54,10 +54,10 @@ void Texture::loadTexture(const char* path)
 	if (image)
 	{
 		loaded = true;
-		//std::cout << "NOTICE: Tex load success. " << " " << width << "x " << height << "y || " << path << std::endl;
+		std::cout << "NOTICE: Tex load success. " << " " << width << "x " << height << "y || " << path << std::endl;
 	}
 	else
 	{
-		//std::cout << "WARNING: Tex load fail: " << path << std::endl;
+		std::cout << "WARNING: Tex load fail: " << path << std::endl;
 	}
 }

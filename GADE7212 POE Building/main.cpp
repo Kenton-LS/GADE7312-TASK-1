@@ -46,7 +46,7 @@ bool hasRoof = true;
 bool hasFloor = true;
 bool hasDoors = true;
 bool hasLight = true;
-bool night = true; 
+bool night = true;
 // If hasLight = false, make night = false
 // If night = true, make hasPan and hasRoof = false
 //-----------------------//
@@ -141,7 +141,7 @@ void init()
 		lightSpot.setDiffuse(glm::vec4(0.0, 1.0, 0.0, 1.0));
 		lightSpot.setAmbient(glm::vec4(0.0, 1.0, 0.0, 1.0));
 
-		lightSpot.setCutoff(60.0);
+		lightSpot.setCutoff(55.0);
 		lightSpot.setDirection(glm::vec3(1.0, 2.0, 1.5));
 		lightSpot.setExponent(1.0);
 
@@ -152,8 +152,8 @@ void init()
 		lightPoint.setAmbient(glm::vec4(1.0, 0.0, 0.0, 1.0));
 
 		lightPoint.setCAttenuation(1.0);//stays 1 for constant emmission
-		lightPoint.setLAttenuation(0.09);
-		lightPoint.setQAttenuation(0.02);
+		lightPoint.setLAttenuation(0.1);
+		lightPoint.setQAttenuation(0.06);
 	}
 	else
 	{
@@ -224,7 +224,6 @@ void calculateFPS()
 	{
 		// Calculate Frame Rate
 		// Formula: frames drawn / time taken (in seconds) = fps
-
 		std::cout << "FPS: " << frame_count / (final_time - initial_time) << std::endl;
 		frame_count = 0; // Reset for next time we calculate (for every sec that passes)
 		initial_time = final_time;

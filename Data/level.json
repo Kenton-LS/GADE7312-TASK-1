@@ -11,10 +11,10 @@
 			"length": 4,
 			"id": 0,
 			"texture": "../Textures/dark_prismarine.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5},
-			{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5},
-			{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 2.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5},
+			{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 2.5}]
 		},
 		{
 			"position": [-2, 0, -1],
@@ -23,7 +23,7 @@
 			"length": 2,
 			"id": 1,
 			"texture": "../Textures/dark_prismarine.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-2, 0, 1],
@@ -32,8 +32,8 @@
 			"length": 2,
 			"id": 2,
 			"texture": "../Textures/dark_prismarine.png",
-			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [2, 0, -1],
@@ -42,7 +42,7 @@
 			"length": 2,
 			"id": 3,
 			"texture": "../Textures/dark_prismarine.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [2, 0, 1],
@@ -51,8 +51,8 @@
 			"length": 2,
 			"id": 4,
 			"texture": "../Textures/dark_prismarine.png",
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5},
-			{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5},
+			{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [0, 0, 3],
@@ -61,7 +61,7 @@
 			"length": 2,
 			"id": 5,
 			"texture": "../Textures/dark_prismarine.png",
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 2.5}]
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 2.5}]
 		},
 		{
 			"position": [0, 0, -4], 
@@ -70,8 +70,8 @@
 			"length": 4,
 			"id": 6,
 			"texture": "../Textures/dark_prismarine.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [0, 0, -8],
@@ -80,9 +80,9 @@
 			"length": 4,
 			"id": 7,
 			"texture": "../Textures/mossy_cobblestone.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 3.5},
-			{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 1.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 3.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 3.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 3.5}]
 		},
 		{
 			"position": [6, 0, -8], 
@@ -91,9 +91,9 @@
 			"length": 2,
 			"id": 8,
 			"texture": "../Textures/spruce_planks.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 1.5},
-			{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [10, 0, -8], 
@@ -102,7 +102,7 @@
 			"length": 4,
 			"id": 9,
 			"texture": "../Textures/spruce_planks.png",
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 1.5}]
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [6, 0, -5], 
@@ -111,8 +111,8 @@
 			"length": 4,
 			"id": 10,
 			"texture": "../Textures/spruce_planks.png",
-			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [9, 0, -4], 
@@ -121,7 +121,7 @@
 			"length": 2,
 			"id": 11,
 			"texture": "../Textures/spruce_planks.png",
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [0, 0, -12], 
@@ -130,8 +130,8 @@
 			"length": 4,
 			"id": 12,
 			"texture": "../Textures/gold_block.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [0, 0, -16], 
@@ -140,8 +140,8 @@
 			"length": 4,
 			"id": 13,
 			"texture": "../Textures/gold_block.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 2.5}],
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 1.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 2.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [-5, 0, -16], 
@@ -150,8 +150,8 @@
 			"length": 2,
 			"id": 14,
 			"texture": "../Textures/gold_block.png",
-			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-8, 0, -16], 
@@ -160,8 +160,8 @@
 			"length": 4,
 			"id": 15,
 			"texture": "../Textures/gold_block.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5},
-			{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 1.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [-8, 0, -13], 
@@ -170,8 +170,8 @@
 			"length": 2,
 			"id": 16,
 			"texture": "../Textures/bricks.png",
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 1.5},
-			{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5},
+			{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-12, 0, -13], 
@@ -180,8 +180,8 @@
 			"length": 4,
 			"id": 17,
 			"texture": "../Textures/bricks.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 1.5},
-			{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 1.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [-12, 0, -9], 
@@ -190,8 +190,8 @@
 			"length": 4,
 			"id": 18,
 			"texture": "../Textures/bricks.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-12, 0, -5], 
@@ -200,8 +200,8 @@
 			"length": 4,
 			"id": 19,
 			"texture": "../Textures/mossy_stone_bricks.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 1.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 1.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [-12, 0, -1], 
@@ -210,8 +210,8 @@
 			"length": 4,
 			"id": 20,
 			"texture": "../Textures/mossy_stone_bricks.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-12, 0, 2], 
@@ -220,9 +220,9 @@
 			"length": 2,
 			"id": 21,
 			"texture": "../Textures/grass_block_top.png",
-			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 2.5},
-			{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 2.5},
+			{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-7, 0, 2], 
@@ -231,7 +231,7 @@
 			"length": 4,
 			"id": 22,
 			"texture": "../Textures/grass_block_top.png",
-			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 3, "offset": 1.5}]
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
 		},
 		{
 			"position": [-16, 0, 0], 
@@ -240,8 +240,8 @@
 			"length": 6,
 			"id": 23,
 			"texture": "../Textures/dirt.png",
-			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}],
-			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
 		},
 		{
 			"position": [-16, 0, -4], 
@@ -250,7 +250,7 @@
 			"length": 2,
 			"id": 24,
 			"texture": "../Textures/dirt.png",
-			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 3, "offset": 0.5}]
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}]
 		}
 	],
 	"models": [

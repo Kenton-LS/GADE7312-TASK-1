@@ -137,7 +137,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["holes"][0]["offset"];
 
 				southFace = true;
-				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
 			}
@@ -149,7 +149,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["holes"][1]["offset"];
 
 				southFace = true;
-				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
 			}
@@ -171,7 +171,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["holes"][0]["offset"];
 
 				southFace = false;
-				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
 			}
@@ -183,7 +183,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["holes"][1]["offset"];
 
 				southFace = false;
-				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, roomPadding, colour, normal);
+				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
 			}
@@ -205,7 +205,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["doors"][0]["offset"];
 
 				northFace = true;
-				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
@@ -235,7 +235,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["doors"][1]["offset"];
 
 				northFace = true;
-				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
@@ -275,7 +275,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["doors"][0]["offset"];
 
 				northFace = false;
-				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
@@ -305,7 +305,7 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				offset = roomJSON["doors"][1]["offset"];
 
 				northFace = false;
-				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, roomPadding, colour, normal);
+				Door *door = new Door(vStart, verticalDirection, vy, northFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
