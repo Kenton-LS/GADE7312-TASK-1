@@ -42,6 +42,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 	bool southFace; 
 	float holeWidth, holeHeight, offset;
 
+	vertexCount = 0; // TASK 2 float calculate triangles / vertices
+
 	// For Door Walls
 	bool northFace; // (Also uses above holewidth, holeheight, and offset for door dimensions)
 
@@ -140,6 +142,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
+
+				vertexCount += 12;
 			}
 			else if (roomJSON["holes"][1]["face"] == "s" && hasDoors)
 			{
@@ -152,12 +156,16 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
+
+				vertexCount += 12;
 			}
 			else
 			{
 				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
 				wall->setTexture(textureCharW);
 				gameObjects.push_back(wall);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -174,6 +182,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
+
+				vertexCount += 12;
 			}
 			else if (roomJSON["holes"][1]["face"] == "e" && hasDoors)
 			{
@@ -186,12 +196,16 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
 				hole->setTexture(textureCharW);
 				gameObjects.push_back(hole);
+
+				vertexCount += 12;
 			}
 			else
 			{
 				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
 				wall->setTexture(textureCharW);
 				gameObjects.push_back(wall);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -209,6 +223,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
+				vertexCount += 16;
+
 				if (hasRoof)
 				{
 					// Door's Roof
@@ -216,6 +232,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(roof);
+
+					vertexCount += 4;
 				}
 
 				if (hasFloor)
@@ -225,6 +243,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(floor);
+
+					vertexCount += 4;
 				}
 			}
 			else if (roomJSON["doors"][1]["face"] == "n"  && hasDoors)
@@ -239,6 +259,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
+				vertexCount += 16;
+
 				if (hasRoof)
 				{
 					// Door's Roof
@@ -246,6 +268,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(roof);
+
+					vertexCount += 4;
 				}
 
 				if (hasFloor)
@@ -255,6 +279,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(floor);
+
+					vertexCount += 4;
 				}
 			}
 			else
@@ -262,6 +288,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
 				wall->setTexture(textureCharW);
 				gameObjects.push_back(wall);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -279,6 +307,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
+				vertexCount += 16;
+
 				if (hasRoof)
 				{
 					// Door's Roof
@@ -286,6 +316,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(roof);
+
+					vertexCount += 4;
 				}
 
 				if (hasFloor)
@@ -295,6 +327,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(floor);
+
+					vertexCount += 4;
 				}
 			}
 			else if (roomJSON["doors"][1]["face"] == "w"  && hasDoors)
@@ -309,6 +343,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				door->setTexture(textureCharW);
 				gameObjects.push_back(door);
 
+				vertexCount += 16;
+
 				if (hasRoof)
 				{
 					// Door's Roof
@@ -316,6 +352,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					roof->setTexture(textureCharR); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(roof);
+
+					vertexCount += 4;
 				}
 				
 				if (hasFloor)
@@ -325,6 +363,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 					//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 					floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 					gameObjects.push_back(floor);
+
+					vertexCount += 4;
 				}
 			}
 			else
@@ -332,6 +372,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
 				wall->setTexture(textureCharW);
 				gameObjects.push_back(wall);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -344,6 +386,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				//floor->setTexture(textureCharW); // To have Floor same Texture as Walls
 				floor->setTexture(textureCharF); // To have Floor as Wolfenstein Style
 				gameObjects.push_back(floor);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -356,6 +400,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 				//roof->setTexture(textureCharW); // To have Roof same Texture as Walls
 				roof->setTexture(textureCharR); // To have Roof as Wolfenstein Style
 				gameObjects.push_back(roof);
+
+				vertexCount += 4;
 			}
 		}
 		break;
@@ -365,6 +411,8 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 			Wall *wall = new Wall(vStart, verticalDirection, vy, colour, normal);
 			wall->setTexture(textureCharW);
 			gameObjects.push_back(wall);
+
+			vertexCount += 4;
 		}
 		}
 		vStart += verticalDirection;
@@ -383,6 +431,33 @@ void Room::drawGeometry() // Also Henk recommends using OBJ files instead of FBX
 	}
 	glPopMatrix();
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------//
+// Methods for cutting down code
+
+/*void Room::assignValues(json roomJSON, int jsonIndex)
+{
+	string face = roomJSON["holes"][jsonIndex]["face"];
+	float holeWidth = roomJSON["holes"][jsonIndex]["holeWidth"];
+	float holeHeight = roomJSON["holes"][jsonIndex]["holeHeight"];
+	float offset = roomJSON["holes"][jsonIndex]["offset"];
+}*/
+
+/*void Room::drawHole(json roomJSON, int jsonIndex, bool southFace, // For retrieving JSON values
+	vec3 vStart, vec3 verticalDirection, vec3 vy, float roomPadding, vec3 colour, vec3 normal, // For drawing hole
+	const char *  textureCharW, vector<GameObject*> gameObjects) // For texturing & pushing 
+{
+	string face = roomJSON["holes"][jsonIndex]["face"];
+	float holeWidth = roomJSON["holes"][jsonIndex]["holeWidth"];
+	float holeHeight = roomJSON["holes"][jsonIndex]["holeHeight"];
+	float offset = roomJSON["holes"][jsonIndex]["offset"];
+
+	Hole *hole = new Hole(vStart, verticalDirection, vy, southFace, offset, holeWidth, holeHeight, roomPadding, colour, normal);
+	hole->setTexture(textureCharW);
+	gameObjects.push_back(hole);
+
+	cout << "Method called. Holewidth: " << holeWidth << endl;
+}*/
 
 // REFERENCE
 // For converting string to const char*

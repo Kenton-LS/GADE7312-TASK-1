@@ -13,6 +13,7 @@ public:
 	~ModelWhole();
 	float rotationOffset = 1.0f;
 	float rotationSpeed = 1.0f;
+	float vertexCount; // TASK 2 
 private:
 	void loadModel(std::string path, std::string name); // Values are passed into Load Model () method
 	void drawGeometry() override; // Draw the stored list

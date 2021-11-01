@@ -86,19 +86,21 @@ void Hole::drawGeometry()
 				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				// Slab above hole
+
+				// Slab above hole -------------------------------------//
 				glTexCoord2f(0, 0);
 				glVertex3f(vs1.x, vs1.y, vs1.z); // VS1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs2.x, vs2.y, vs2.z); // VS2
 
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vec3(holeWidth, 0, 0)), glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs3.x, vs3.y, vs3.z); // VS3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vec3(holeWidth, 0, 0)), 0);
 				glVertex3f(vs4.x, vs4.y, vs4.z); // VS4
-				// End slab
+				// End slab -------------------------------------//
+
 
 				glTexCoord2f(0, 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
@@ -107,10 +109,10 @@ void Hole::drawGeometry()
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
 				// Right side wall
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vLeft - (offset + holeWidth)), glm::length(vUp));
 				glVertex3f(v3.x, v3.y, v3.z); // V3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vLeft - (offset + holeWidth)), 0);
 				glVertex3f(v4.x, v4.y, v4.z); //V4
 			}
 			else // EAST FACE WALL
@@ -129,19 +131,21 @@ void Hole::drawGeometry()
 				glTexCoord2f(glm::length(offset), 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				// Slab above hole
+
+				// Slab above hole -------------------------------------//
 				glTexCoord2f(0, 0);
 				glVertex3f(vs1.x, vs1.y, vs1.z); // VS1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs2.x, vs2.y, vs2.z); // VS2
 
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vec3(0, 0, holeWidth)), glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs3.x, vs3.y, vs3.z); // VS3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vec3(0, 0, holeWidth)), 0);
 				glVertex3f(vs4.x, vs4.y, vs4.z); // VS4
-				// End slab
+				// End slab -------------------------------------//
+
 
 				glTexCoord2f(0, 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
@@ -150,10 +154,10 @@ void Hole::drawGeometry()
 				glVertex3f(vh3.x, vh3.y, vh3.z); // VH3
 
 				// Right side wall
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vLeft - (offset + holeWidth)), glm::length(vUp));
 				glVertex3f(v3.x, v3.y, v3.z); // V3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vLeft - (offset + holeWidth)), 0);
 				glVertex3f(v4.x, v4.y, v4.z); //V4
 			}
 		}

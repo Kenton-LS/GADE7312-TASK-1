@@ -1,10 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GADE7212 POE Building.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(26): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(33): warning C4244: 'initializing': conversion from 'time_t' to 'int', possible loss of data
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(167): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(168): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(239): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\input.h(43): warning C4091: 'static ': ignored on left of 'Input' when no variable is declared
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\time.h(15): warning C4091: 'static ': ignored on left of 'Time' when no variable is declared
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(627): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(628): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(677): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kento\source\repos\gade_poe_2021\gade7312 task 1\gade7212 poe building\main.cpp(678): warning C4305: 'argument': truncation from 'double' to 'float'
   GADE7212 POE Building.vcxproj -> C:\Users\kento\Source\Repos\GADE_POE_2021\GADE7312 TASK 1\Debug\GADE7312 Task1.exe
           1 file(s) copied.

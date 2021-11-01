@@ -12,6 +12,7 @@ class Level : public GameObject
 public:
 	Level(string path, bool hasRoof, bool hasFloor, bool hasDoors);
 	~Level();
+	 float vertexCount;
 private:
 	// Private integer for display lists
 	GLuint id;

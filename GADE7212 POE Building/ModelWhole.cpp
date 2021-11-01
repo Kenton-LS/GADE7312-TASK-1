@@ -135,6 +135,8 @@ void ModelWhole::generateGeometry()
 		{
 			cout << "INDEX: " << index << endl;
 			cout << "SIZE: " << part.indices.size() << endl;
+			
+			vertexCount = part.indices.size(); // TASK 2 for calculating triangle / vert count
 
 			// Draw Geometry
 			glBegin(GL_TRIANGLES);

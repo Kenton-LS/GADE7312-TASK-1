@@ -1,0 +1,155 @@
+{
+"roomPadding": 0.2,
+"floorTexture": "../Textures/stone_slab_side.png",
+"roofTexture": "../Textures/frosted_ice.png",
+"wallTexture": "../Textures/dark_prismarine.png",
+	"rooms": [
+		{
+			"position": [0, 0, -4], 
+			"width": 2,
+			"height": 3,
+			"length": 4,
+			"id": 0,
+			"texture": "../Textures/dark_prismarine.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [0, 0, -8],
+			"width": 8,
+			"height": 3,
+			"length": 4,
+			"id": 1,
+			"texture": "../Textures/mossy_cobblestone.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 3.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 3.5}]
+		},
+		{
+			"position": [6, 0, -8], 
+			"width": 4,
+			"height": 3,
+			"length": 2,
+			"id": 2,
+			"texture": "../Textures/spruce_planks.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [10, 0, -8], 
+			"width": 4,
+			"height": 3,
+			"length": 4,
+			"id": 3,
+			"texture": "../Textures/spruce_planks.png",
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
+		},
+		{
+			"position": [0, 0, -12], 
+			"width": 2,
+			"height": 3,
+			"length": 4,
+			"id": 4,
+			"texture": "../Textures/gold_block.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [0, 0, -16], 
+			"width": 6,
+			"height": 3,
+			"length": 4,
+			"id": 5,
+			"texture": "../Textures/gold_block.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 2.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
+		},
+		{
+			"position": [-5, 0, -16], 
+			"width": 4,
+			"height": 3,
+			"length": 2,
+			"id": 6,
+			"texture": "../Textures/gold_block.png",
+			"holes":[{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [-8, 0, -16], 
+			"width": 2,
+			"height": 3,
+			"length": 4,
+			"id": 7,
+			"texture": "../Textures/gold_block.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}]
+		},
+		{
+			"position": [-8, 0, -13], 
+			"width": 4,
+			"height": 3,
+			"length": 2,
+			"id": 8,
+			"texture": "../Textures/bricks.png",
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5},
+			{"face": "w", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [-12, 0, -13], 
+			"width": 4,
+			"height": 3,
+			"length": 4,
+			"id": 9,
+			"texture": "../Textures/bricks.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5},
+			{"face": "e", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}]
+		},
+		{
+			"position": [-12, 0, -9], 
+			"width": 2,
+			"height": 3,
+			"length": 4,
+			"id": 10,
+			"texture": "../Textures/bricks.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 0.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 0.5}]
+		},
+		{
+			"position": [-12, 0, -5], 
+			"width": 4,
+			"height": 3,
+			"length": 4,
+			"id": 11,
+			"texture": "../Textures/mossy_stone_bricks.png",
+			"holes":[{"face": "s", "holeWidth": 1, "holeHeight": 2.5, "offset": 1.5}],
+			"doors":[{"face": "n", "doorWidth": 1, "doorHeight": 2.5, "offset": 1.5}]
+		}
+	],
+	"models": [
+		{
+			"id": 0,
+			"position": [0, 0, -8], 
+			"rotation": [90, 0, 0], 
+			"scale": [1, 1, 1], 
+			"polygons": 15000,
+			"texture": "../Textures/dark_prismarine.png",
+			"textureNormal": "../Textures/gold_block.png",
+			"textureBump": "../Textures/grass_block_side.png",
+			"textureShadow": "../Textures/grass_block_top.png",
+			"textureReflection": "../Textures/mossy_cobblestone.png"
+		},
+		{
+			"id": 1,
+			"position": [-12, 0, -5], 
+			"rotation": [0, 0, 180], 
+			"scale": [1, 1, 1], 
+			"polygons": 20000,
+			"texture": "../Textures/dark_prismarine.png",
+			"textureNormal": "../Textures/mossy_stone_bricks.png",
+			"textureBump": "../Textures/spruce_planks.png",
+			"textureShadow": "../Textures/stone_bricks.png",
+			"textureReflection": "../Textures/stone_slab_side.png"
+		}
+	]
+}

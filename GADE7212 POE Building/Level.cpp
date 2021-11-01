@@ -79,6 +79,8 @@ void Level::parseLevel(bool hasRoof, bool hasFloor, bool hasDoors)
 		// Room
 		Room* room = new Room(roomJSON, modelJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors); // Parse the room JSON and room padding (space between walls -> illusion of thickness to the wall)
 		gameObjects.push_back(room); // IE Same as C# "Add" function to a list
+
+	    vertexCount += room->vertexCount; // TASK 2 (for calculating total triangles)
 	}
 
 	id = glGenLists(1); // Generate a single list (1) / collection of geometry

@@ -107,13 +107,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(holeHeight));
 				glVertex3f(vh2.x, holeHeight, vh2.z); // VH2 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(holeHeight));
 				glVertex3f(vd2.x, holeHeight, vd2.z); // VD2 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(roomPadding * 2), 0);
 				glVertex3f(vd1.x, vd1.y, vd1.z); // VD1
 
 				//-------------------------------------------------------//
@@ -122,13 +122,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vd4.x, vd4.y, vd4.z); // VD4
 				
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(holeHeight));
 				glVertex3f(vd3.x, holeHeight, vd3.z); // VD3 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(holeHeight));
 				glVertex3f(vh3.x, holeHeight, vh3.z); // VH3 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(roomPadding * 2), 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
 				//-------------------------------------------------------//
@@ -153,13 +153,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vs1.x, vs1.y, vs1.z); // VS1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs2.x, vs2.y, vs2.z); // VS2
 
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vec3(holeWidth, 0, 0)), glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs3.x, vs3.y, vs3.z); // VS3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vec3(holeWidth, 0, 0)), 0);
 				glVertex3f(vs4.x, vs4.y, vs4.z); // VS4
 				// End slab
 
@@ -189,13 +189,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vh1.x, vh1.y, vh1.z); // VH1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(holeHeight));
 				glVertex3f(vh2.x, holeHeight, vh2.z); // VH2 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(holeHeight));
 				glVertex3f(vd2.x, holeHeight, vd2.z); // VD2 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(roomPadding * 2), 0);
 				glVertex3f(vd1.x, vd1.y, vd1.z); // VD1
 
 				//-------------------------------------------------------//
@@ -204,13 +204,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vd4.x, vd4.y, vd4.z); // VD4
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(holeHeight));
 				glVertex3f(vd3.x, holeHeight, vd3.z); // VD3 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(roomPadding * 2), glm::length(vUp));
+				glTexCoord2f(glm::length(roomPadding * 2), glm::length(holeHeight));
 				glVertex3f(vh3.x, holeHeight, vh3.z); // VH3 --- ADJUSTMENT MADE HERE: TASK 2 ROOF SLAB (this wall was lowered to imitate roof slab)
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(roomPadding * 2), 0);
 				glVertex3f(vh4.x, vh4.y, vh4.z); // VH4
 
 				//-------------------------------------------------------//
@@ -234,13 +234,13 @@ void Door::drawGeometry()
 				glTexCoord2f(0, 0);
 				glVertex3f(vs1.x, vs1.y, vs1.z); // VS1
 
-				glTexCoord2f(0, glm::length(vUp));
+				glTexCoord2f(0, glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs2.x, vs2.y, vs2.z); // VS2
 
-				glTexCoord2f(glm::length(offset), glm::length(vUp));
+				glTexCoord2f(glm::length(vec3(0, 0, holeWidth)), glm::length(vec3(0, vUp.y - holeHeight, 0)));
 				glVertex3f(vs3.x, vs3.y, vs3.z); // VS3
 
-				glTexCoord2f(glm::length(offset), 0);
+				glTexCoord2f(glm::length(vec3(0, 0, holeWidth)), 0);
 				glVertex3f(vs4.x, vs4.y, vs4.z); // VS4
 				// End slab
 
