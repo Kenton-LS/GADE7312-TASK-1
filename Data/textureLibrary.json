@@ -1,0 +1,51 @@
+{
+	"storedTextures": [
+	{
+		"id": "bricks",
+		"texture": "../Textures/bricks.png"
+	},
+	{
+		"id": "prismarine",
+		"texture": "../Textures/dark_prismarine.png"
+	},
+	{
+		"id": "dirt",
+		"texture": "../Textures/dirt.png"
+	},
+	{
+		"id": "ice",
+		"texture": "../Textures/frosted_ice.png"
+	},
+	{
+		"id": "gold",
+		"texture": "../Textures/gold_block.png"
+	},
+	{
+		"id": "grass1",
+		"texture": "../Textures/grass_block_side.png"
+	},
+	{
+		"id": "grass2",
+		"texture": "../Textures/grass_block_top.png"
+	},
+	{
+		"id": "moss1",
+		"texture": "../Textures/mossy_cobblestone.png"
+	},
+	{
+		"id": "moss2",
+		"texture": "../Textures/mossy_stone_bricks.png"
+	},
+	{
+		"id": "planks",
+		"texture": "../Textures/spruce_planks.png"
+	},
+	{
+		"id": "stone",
+		"texture": "../Textures/stone_bricks.png"
+	},
+	{
+		"id": "slab",
+		"texture": "../Textures/stone_slab_side.png"
+	}]
+}

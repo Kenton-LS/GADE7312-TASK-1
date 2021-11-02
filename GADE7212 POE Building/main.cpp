@@ -40,7 +40,6 @@ void controlDisplay(); // TASK 2 Controllable cam
 void stillDisplay(); // To keep window open for a while
 void panDisplay(); // Camera pans around level
 void setupLighting(); // Manages types of lights to spawn
-void switchLighting(); // Swap lighting based on user command
 void timer(int t);
 
 void commandManager(); // Holds functionality for activating commands (aka command update function)
@@ -73,7 +72,7 @@ Level* level2;
 //------CONTROL HUB------//
 int camType = 3;				// 1 = PAN (rotate around level) ||| 2 = STILL (bird's eye view) ||| 3 = CONTROL (free roam via user input)
 int activeLevel = 1;			// 1 or 2
-bool hasRoof = false;
+bool hasRoof = true;
 bool hasFloor = true;
 bool hasDoors = true;
 bool hasLight = false;			// If hasLight = false, make night = false

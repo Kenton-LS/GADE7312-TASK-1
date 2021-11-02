@@ -150,6 +150,7 @@
     <ClCompile Include="Roof.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureLibrary.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="Roof.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureLibrary.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Wall.h" />
@@ -179,6 +181,7 @@
   <ItemGroup>
     <None Include="..\Data\level.json" />
     <None Include="..\Data\level2.json" />
+    <None Include="..\Data\textureLibrary.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

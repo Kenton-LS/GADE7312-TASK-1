@@ -9,7 +9,10 @@
 #include "Hole.h"
 #include "Door.h"
 
+#include "TextureLibrary.h"
+
 using namespace glm;
+//TextureLibrary* textureLibrary;
 
 Room::Room(json roomJSON, json modelJSON, float roomPadding, string floorTexture, string roofTexture, bool hasRoof, bool hasFloor, bool hasDoors)
 {
@@ -20,6 +23,7 @@ Room::Room(json roomJSON, json modelJSON, float roomPadding, string floorTexture
 	);
 
 	generate(roomJSON, modelJSON, roomPadding, floorTexture, roofTexture, hasRoof, hasFloor, hasDoors);
+	//textureLibrary = new TextureLibrary("../Data/textureLibrary.json");
 }
 
 Room::~Room()
@@ -67,6 +71,17 @@ void Room::generate(json roomJSON, json modelJSON, float roomPadding, string flo
 	string textureStringR = roofTexture; // Get Roof Texture
 	//cout << textureStringR << endl;
 	const char * textureCharR = textureStringR.c_str();
+
+	// TESTING TASK 2 TEXTURE LOADER
+	/*for (int i = 0; i < textureLibrary->storedTextureCount; i++)
+	{
+		if (textureStringW == textureLibrary->storedTextures[i])
+		{
+			 textureCharW = textureLibrary->storedTextures[i];
+		}
+	}*/
+	// END TASK 2 TEXTURE LOADER TEST
+
 	//-------------------------------------------------------------------------------------------------------------------------------------------//
 	// Next: Create 3 vectors -> need room's length, width, height as vectors
 	// Need to get as vectors, while taking room padding into consideration

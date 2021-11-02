@@ -19,8 +19,6 @@ void Wall::drawGeometry()
 	vec3 v3 = v2 + vLeft; // Top right
 	vec3 v4 = v1 + vLeft; // Bottom right
 
-
-
 	// Start drawing geometry
 	glPushMatrix();
 	{
